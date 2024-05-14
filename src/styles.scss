@@ -1,8 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'ngx-toastr/toastr';
+
 :root{
-    --purple: #9C27B0;
+    --purple: #512DA8;
+    --light-purple: #9575CD;
 }
 
-.purple{
-    color: var(--purple);
-}
+$purple: var(--purple);
+$light-purple: var(--light-purple)

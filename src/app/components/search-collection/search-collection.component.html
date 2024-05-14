@@ -1,13 +1,17 @@
-<section class="mt-4 d-flex flex-column align-items-center">
+<section class="m-4 d-flex flex-column align-items-center">
     <h1 class="mb-4 text-center">Magic: The Gathering Developers</h1>
-    <form class="d-flex align-items-center gap-3 " [formGroup]="formSearch">
-        <input class="form-control w-100" type="text" formControlName="name">
-        <select class="form-select w-75" formControlName="blockType">
-            @for(list of blockList; track $index){
-            <option [value]="list.id">{{list.name}}</option>
-            }
-        </select>
-        <button type="button" class="btn btn-primary" (click)="searchCards()">Buscar</button>
+    <form class="d-flex align-items-center justify-content-center gap-3 w-100 flex-wrap" [formGroup]="formSearch">
+        <input class="form-control input-name" type="text" formControlName="name" placeholder="Nome">
+
+        <div class="d-flex align-items-center gap-2">
+            <select class="form-select " id="select-input" formControlName="blockType">
+                @for(list of blockList; track $index){
+                <option [value]="list.id">{{list.name}}</option>
+                }
+            </select>
+    
+            <button type="button" class="btn btn-primary" (click)="searchCards()">Buscar</button>
+        </div>
     </form>
 </section>
 

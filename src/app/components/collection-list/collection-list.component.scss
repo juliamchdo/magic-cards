@@ -1,4 +1,11 @@
-.card{
-    width: 18rem;
-    height: 10rem;
+.card {
+  width: 18rem;
+  height: 10rem;
+  background-color: var(--light-purple);
+  color: white;
+}
+
+.card:hover {
+  background-color: var(--purple) !important;
+  transition: all 0.5s;
 }

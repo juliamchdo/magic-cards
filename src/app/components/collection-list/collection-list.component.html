@@ -1,6 +1,6 @@
 <section class="d-flex flex-wrap align-items-center justify-content-center gap-2 mt-5 mb-5">
     @for(card of magicCards; track $index){
-    <div class="card pointer" title="Clique para mais informações" (click)="sortCards(card.code)">
+    <div class="card pointer" title="Clique para gerar boosters" (click)="sortCards(card.code)">
         <div class="card-body">
             <h5 class="card-title">{{card.name}}</h5>
             <p class="card-text">{{card.block}}</p>

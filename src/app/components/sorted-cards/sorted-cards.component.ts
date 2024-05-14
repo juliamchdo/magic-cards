@@ -15,29 +15,26 @@ export class SortedCardsComponent implements OnInit{
   
   constructor(private magicCardsService: MagicCardsService, private statesServices: StatesServices, private router: Router) {}
 
-  selectedCards: SortedCards[] = [];
+  sortedCards: SortedCards[] = [];
   isLoading = true
   code!: string;
 
   ngOnInit(){
     this.statesServices.getParams().subscribe((param) => {
       this.code = param;
-    })
+    });
 
     if(!this.code) this.router.navigate(['']);
     this.sortCards(this.code);
   }
 
   async sortCards(code: string) {
-    while (this.selectedCards.length < 30) {
-      this.isLoading = true
+    while (this.sortedCards.length < 30) {
       const sortedCards = await this.magicCardsService.sortCards(code);
-
       sortedCards.cards.forEach((card) => {
-        if (card.type.includes('Creature') && this.selectedCards.length < 30) this.selectedCards.push(card);
+        if (card.type.includes('Creature') && this.sortedCards.length < 30) this.sortedCards.push(card);
       });
-
-      if (this.selectedCards.length >= 30)  break; 
+      if (this.sortedCards.length >= 30)  break; 
     }
     this.isLoading = false
   }

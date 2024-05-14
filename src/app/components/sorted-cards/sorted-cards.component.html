@@ -1,15 +1,32 @@
-<section>
+<section class="m-4">
     @if(isLoading){
-        <div class="w-100 d-flex align-items-center justify-content-center mt-5">
-            <div class="spinner-border" role="status">
-                <span class="visually-hidden">Loading...</span>
+    <div class="w-100 d-flex align-items-center justify-content-center mt-5">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <div class="mt-2">
+        <h5 class="text-center">Abrindo os seus boosters</h5>
+        <p class="text-center">Aguarde</p>
+    </div>
+    } @else {
+    <div class="d-flex align-items-center justify-content-center flex-wrap gap-2">
+        @for(card of sortedCards; track $index){
+            <div class="card mb-3">
+                <div class="row align-items-center g-0">
+                    <div class="col-md-6">
+                        <img [src]="card.imageUrl" class="img-fluid rounded-start" alt="card image">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-body">
+                            <h5 class="card-title">{{card.name}}</h5>
+                            <p class="card-text"><small class="text-muted">{{card.manaCost}}</small></p>
+                            <p class="card-text">{{card.text}}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="mt-2">
-            <h5 class="text-center">Abrindo os seus boosters</h5>
-            <p class="text-center">Aguarde</p>
-        </div>
-        } @else {
-            <p>oi</p>
-        }
+            }
+    </div>
+    }
 </section>

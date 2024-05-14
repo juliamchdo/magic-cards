@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+    --purple: #9C27B0;
+}
+
+.purple{
+    color: var(--purple);
+}

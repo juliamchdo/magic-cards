@@ -1,11 +1,24 @@
-<section class="m-4">
-    <form class="d-flex align-items-center gap-3" [formGroup]="formSearch">
+<section class="mt-4 d-flex flex-column align-items-center">
+    <h1 class="mb-4 text-center">Magic: The Gathering Developers</h1>
+    <form class="d-flex align-items-center gap-3 " [formGroup]="formSearch">
         <input class="form-control w-100" type="text" formControlName="name">
         <select class="form-select w-75" formControlName="blockType">
             @for(list of blockList; track $index){
-                <option [value]="list.id">{{list.name}}</option>
+            <option [value]="list.id">{{list.name}}</option>
             }
-          </select>
-          <button type="button" class="btn btn-primary" (click)="searchCards()">Buscar</button>
+        </select>
+        <button type="button" class="btn btn-primary" (click)="searchCards()">Buscar</button>
     </form>
 </section>
+
+@if(isLoading){
+<div class="w-100 d-flex align-items-center justify-content-center mt-5">
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+}
+
+@if(cards.length){
+<app-collection-list [magicCards]="cards"></app-collection-list>
+}

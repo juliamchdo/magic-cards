@@ -1,4 +1,4 @@
-<section class="m-4">
+<section class="m-4 w-100">
     @if(isLoading){
     <div class="w-100 d-flex align-items-center justify-content-center mt-5">
         <div class="spinner-border" role="status">
@@ -6,12 +6,12 @@
         </div>
     </div>
     <div class="mt-2">
-        <h5 class="text-center">Abrindo os seus boosters</h5>
+        <h5 class="text-center">Carregando os seus boosters</h5>
         <p class="text-center">Aguarde</p>
     </div>
     } @else {
     <div class="d-flex flex-column align-items-center gap-4">
-        <button type="button" class="btn btn-primary w-25" (click)="backToSearch()">Gerar novos boosters</button>
+        <button type="button" class="btn btn-primary" (click)="backToSearch()">Gerar novos boosters</button>
         <div class="d-flex align-items-center justify-content-center flex-wrap gap-2">
             @for(card of sortedCards; track $index){
                 <div class="card mb-3">
@@ -22,6 +22,12 @@
                         <div class="col-md-6 card-text-body">
                             <div class="card-body">
                                 <h5 class="card-title">{{card.name}}</h5>
+                                @for(color of card.colorIdentity; track $index) {
+                                    @if(hasColorIdentity(color)){
+                                        <img [src]="showColorIdentity(color)" class="mx-1" alt="color icon">
+                                    }
+                                    
+                                }
                                 <p class="card-text"><small class="text-muted">{{card.manaCost}}</small></p>
                                 <p class="card-text">{{card.text}}</p>
                             </div>

@@ -1,7 +1,7 @@
 export interface SortedCards {
-    colorIdentity: string,
+    colorIdentity: [],
     imageUrl: string
-    manaCost: string[],
+    manaCost: string,
     name: string,
     text: string,
     type: string,

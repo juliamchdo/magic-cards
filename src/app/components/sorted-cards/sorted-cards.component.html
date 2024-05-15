@@ -10,23 +10,26 @@
         <p class="text-center">Aguarde</p>
     </div>
     } @else {
-    <div class="d-flex align-items-center justify-content-center flex-wrap gap-2">
-        @for(card of sortedCards; track $index){
-            <div class="card mb-3">
-                <div class="row align-items-center g-0">
-                    <div class="col-md-6">
-                        <img [src]="card.imageUrl" class="img-fluid rounded-start" alt="card image">
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card-body">
-                            <h5 class="card-title">{{card.name}}</h5>
-                            <p class="card-text"><small class="text-muted">{{card.manaCost}}</small></p>
-                            <p class="card-text">{{card.text}}</p>
+    <div class="d-flex flex-column align-items-center gap-4">
+        <button type="button" class="btn btn-primary w-25" (click)="backToSearch()">Gerar novos boosters</button>
+        <div class="d-flex align-items-center justify-content-center flex-wrap gap-2">
+            @for(card of sortedCards; track $index){
+                <div class="card mb-3">
+                    <div class="row align-items-center p-2 g-0">
+                        <div class="col-md-6 image-card">
+                            <img [src]="card.imageUrl" class="img-fluid rounded-start" alt="card image">
+                        </div>
+                        <div class="col-md-6 card-text-body">
+                            <div class="card-body">
+                                <h5 class="card-title">{{card.name}}</h5>
+                                <p class="card-text"><small class="text-muted">{{card.manaCost}}</small></p>
+                                <p class="card-text">{{card.text}}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            }
+                }
+        </div>
     </div>
     }
 </section>

@@ -15,7 +15,7 @@ export class SortedCardsComponent implements OnInit{
   
   constructor(private magicCardsService: MagicCardsService, private statesServices: StatesServices, private router: Router) {}
 
-  sortedCards: SortedCards[] = [];
+  sortedCards: SortedCards[]= [];
   isLoading = true
   code!: string;
 
@@ -37,5 +37,9 @@ export class SortedCardsComponent implements OnInit{
       if (this.sortedCards.length >= 30)  break; 
     }
     this.isLoading = false
+  }
+
+  backToSearch(){
+    this.router.navigate(['']);
   }
 }

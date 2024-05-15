@@ -1,5 +1,11 @@
 # MagicCards
 
+![magic](https://github.com/juliamchdo/magic-cards/assets/89415625/aa8cb8ec-6a9f-4be7-b13e-0ff4a498663c)
+
+This is a Front End Challenge consuming the API https://docs.magicthegathering.io/
+
+To see the website in production, go to https://magic-cards-challenge.netlify.app/
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.8.
 
 ## Development server
